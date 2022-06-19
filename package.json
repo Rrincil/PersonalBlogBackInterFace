@@ -1,0 +1,26 @@
+{
+  "name": "personalblogbackinterface",
+  "version": "1.0.0",
+  "description": "个人博客后端接口搭建",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rrincil/PersonalBlogBackInterFace.git"
+  },
+  "author": "Rrincil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rrincil/PersonalBlogBackInterFace/issues"
+  },
+  "homepage": "https://github.com/Rrincil/PersonalBlogBackInterFace#readme",
+  "dependencies": {
+    "-": "^0.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.4.0",
+    "mongose": "^0.0.2-security",
+    "s": "^1.0.0"
+  }
+}
