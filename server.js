@@ -1,9 +1,10 @@
 const express =  require("express") ;
 const mongoose= require("mongoose") ;
-// import Body
-const users = require('./routers/api/users')
 const MongoURL =  require('./config/MongoURL').MongoURL;
 const app = express()
+// import Body
+const users = require('./routers/api/users')
+const studyTypes = require('./routers/api/studyType')
 //连接mongodb
 mongoose.connect(MongoURL,{
   useNewUrlParser: true,
@@ -22,6 +23,8 @@ app.get('/',(req,res)=>{
 
 // 使用users
 app.use('/api/user',users)
+//使用studyTypes
+app.use('/api/studyTypes',studyTypes)
 
 //监听端口
 app.listen(3001,()=>{
