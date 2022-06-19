@@ -34,6 +34,7 @@ conn.query(sqlQuery3,function(err,result){
         closeMysql(conn);
     }
 });
+
 //查询成功后关闭mysql
 function closeMysql(conn){ 
     conn.end((err)=>{
