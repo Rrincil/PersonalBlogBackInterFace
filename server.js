@@ -6,6 +6,7 @@ const path = require('path')
 // import Body
 const users = require('./routers/api/users')
 const studyTypes = require('./routers/api/studyType')
+const UploadStudys = require('./routers/api/UploadStudys')
 //连接mongodb
 mongoose.connect(MongoURL,{
   useNewUrlParser: true,
@@ -28,6 +29,9 @@ app.use(express.static(path.join(__dirname,"./static")))
 app.use('/api/user',users)
 //使用studyTypes
 app.use('/api/studyTypes',studyTypes)
+//使用UploadStudys
+app.use('/api/UploadStudys',UploadStudys)
+
 
 //监听端口
 app.listen(3001,()=>{
