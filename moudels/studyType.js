@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 const StudyTypeSchema = new Schema({
   name:{
     type:String,
-    require:true
+    required:true
   }
 })
 module.exports = studyTypes = mongoose.model('studyTypes',StudyTypeSchema)
