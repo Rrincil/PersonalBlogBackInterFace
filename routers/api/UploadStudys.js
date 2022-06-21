@@ -5,12 +5,31 @@ const multer=require('multer');
 const upload=multer({dest:'uploads/'})
 const path = require('path')
 const UploadStudys = require('../../moudels/UploadStudys')
+
+/**
+ * @router get api/UploadStudys
+ * @desc 测试接口
+ * @assess public 
+ */
 Route.get('/',(req,res)=>{
   res.json({mes:'UploadStudys'})
 })
+
+
 /**
- * @router api/UploadStudys/insertmes
- * @desc 插入数据
+ * @router post api/UploadStudys/geturl
+ * @desc 获取文件地址url
+ * @assess public 
+ */
+ Route.post('/geturl',(req,res)=>{
+  UploadStudys.findOne({filename:req.filename}).then(mes=>{
+    res.json(mes)
+  })
+})
+
+/**
+ * @router post api/UploadStudys/insertmes
+ * @desc 插入数据 并存入数据库
  * @assess public 
  */
 Route.post('/insertmes',upload.single('mdfiles'),(req,res)=>{
@@ -38,7 +57,14 @@ Route.post('/insertmes',upload.single('mdfiles'),(req,res)=>{
       let keepname = req.file.originalname
       fs.writeFile(path.join(__dirname,'../../static/md/'+keepname),data,(err)=>{
         if(!err){
-          res.json({path:`http://localhost:3001/md/${keepname}`})
+          newUploadStudys = new UploadStudys({
+            filename:keepname,
+            fileUrl:`http://101.201.220.43:3002/md/${keepname}`
+          })
+          newUploadStudys.save()
+          // res.json({path:`http://localhost:3002/md/${keepname}`})
+          res.json({path:`http://101.201.220.43:3002/md/${keepname}`})
+
         }else{
           console.log(err);
         }

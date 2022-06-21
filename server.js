@@ -34,6 +34,6 @@ app.use('/api/UploadStudys',UploadStudys)
 
 
 //监听端口
-app.listen(3001,()=>{
+app.listen(3002,()=>{
   console.log('已启动');
 })

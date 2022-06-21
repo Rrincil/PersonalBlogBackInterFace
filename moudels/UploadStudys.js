@@ -1,7 +1,11 @@
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 const UploadStudysSchema = new Schema({
-  name:{
+  filename:{
+    type:String,
+    required:true
+  },
+  fileUrl:{
     type:String,
     required:true
   }
